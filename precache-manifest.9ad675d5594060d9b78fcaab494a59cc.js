@@ -4,7 +4,7 @@ self.__precacheManifest = [
     "url": "/homelikeclone/static/js/runtime~main.1ab42b71.js"
   },
   {
-    "revision": "40486947bed3e950abed",
+    "revision": "71038b6d13f96f3cf563",
     "url": "/homelikeclone/static/js/main.c05f84b1.chunk.js"
   },
   {
@@ -12,11 +12,11 @@ self.__precacheManifest = [
     "url": "/homelikeclone/static/js/2.f57c0366.chunk.js"
   },
   {
-    "revision": "40486947bed3e950abed",
-    "url": "/homelikeclone/static/css/main.56717d78.chunk.css"
+    "revision": "71038b6d13f96f3cf563",
+    "url": "/homelikeclone/static/css/main.b3f11dc2.chunk.css"
   },
   {
-    "revision": "e23d07d1676511648e124ed8d43eac2e",
+    "revision": "58c4eb14301f56e900e088f9011bb086",
     "url": "/homelikeclone/index.html"
   }
 ];
