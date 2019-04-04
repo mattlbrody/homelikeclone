@@ -1,0 +1,19 @@
+.ApartmentCountTitle {
+  margin-top:18px;
+  font-size: 19px;
+}
+
+.containerapttitle {
+  display:flex;
+  align-items: center;
+}
+
+.ApartmentCountTitle.containerapttitle button {
+  margin: 0;
+  padding:0;
+}
+
+.tooltip {
+  justify-content: flex-start;
+}
+

@@ -1,0 +1,49 @@
+body {
+  font-family: Roboto, sans-serif;
+  color:gray;
+  font-weight:300;
+  overflow: hidden;
+  margin:0;
+}
+
+.apartmentsearch {
+  margin: 20px 0 0 30px;
+  position: relative;
+}
+
+.map {
+  text-align: center;
+  padding-left: 0;
+}
+
+.intercom {
+  position: absolute;
+  bottom:30px;
+  right:30px;
+  height:60px;
+  width:60px;
+}
+
+
+
+.searchagent {
+  position: absolute;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  justify-content: center;
+  bottom: 35px;
+  z-index: 10;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 16px;
+  font-size: 16px;
+  color: rgb(76, 91, 92);
+  background-color: rgb(255, 255, 255);
+  right: 18px;
+  height: 48px;
+  border-radius: 24px;
+  width: 140px;
+}
+
+.rss {
+  padding-right:10px;
+}

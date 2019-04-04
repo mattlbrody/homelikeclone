@@ -1,0 +1,67 @@
+.container-filters {
+  display:flex;
+  margin-top:20px;
+}
+
+.pricepaper {
+  padding: 25px;
+}
+
+.modalprice {
+  font-size: 11px;
+  color: rgb(170, 178, 178);
+}
+
+.ameneties {
+  color: rgb(170, 178, 178);
+  font-size:14px;
+}
+
+.services {
+  color: rgb(170, 178, 178);
+  font-size:14px;
+}
+
+.guestprice {
+  font-size: 11px;
+  color:black;
+}
+
+.pricedisplay {
+  font-size:20px;
+  font-weight: 400;
+  color: #6699CB;
+  margin-top:3px;
+}
+
+.slider {
+  margin-bottom:50px;
+}
+
+.bottommodal {
+  margin-top: 50px;
+}
+
+.bottommodal, .right {
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+}
+
+.right {
+  justify-content: flex-end;
+}
+
+.seperatordiv {
+  border-right: 1px solid rgb(238, 240, 240);
+  margin-right: 5px;
+  padding-right: 6px;
+}
+
+.mobilefilterwrap {
+  margin-top:20px;
+  border-top: 1px solid rgb(238, 240, 240);
+  border-bottom: 1px solid rgb(238, 240, 240);
+  margin-right: 20px;
+}
+

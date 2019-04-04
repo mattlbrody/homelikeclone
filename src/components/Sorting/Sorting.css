@@ -1,0 +1,46 @@
+.sortingcontainer {
+  display: flex;
+  margin-top:7px;
+  justify-content: space-between;
+}
+
+.moremiles {
+  color: #000066;
+  font-weight: 900;
+  font-size: 21px;
+  margin-right:10px;
+}
+
+.collect {
+  font-size:14px;
+}
+
+.sort {
+  text-align: left;
+  font-size: 12px;
+}
+
+.sortselection fieldset label > span {
+  font-size: 13px;
+  color: rgb(76, 91, 92);;
+}
+
+.sortselection {
+  z-index: 999;
+}
+
+.sortfilter {
+  padding-right:40px;
+  margin-bottom:5px;
+  position:relative;
+  bottom:10px;
+}
+
+.sortingtext {
+  position: relative;
+  top:7px;
+}
+
+.milespermonth {
+  margin-bottom:20px;
+}
