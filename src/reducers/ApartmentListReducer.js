@@ -1,6 +1,6 @@
 export default (state = [], action) => {
   switch(action.type) {
-    case 'FETCH_POSTS':
+    case 'APARTMENT_LIST':
       return action.payload;
     default:
       return state;

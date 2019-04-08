@@ -92,59 +92,59 @@ class More extends React.Component {
           More
           <FontAwesomeIcon className="chevron" icon="chevron-down" />
         </Button>
-        <Popper style={styles.modal} placement="bottom-start" open={open} anchorEl={this.anchorEl} transition disablePortal>
-          {({ TransitionProps, placement }) => (
-            <Grow
-              {...TransitionProps}
-              id="menu-list-grow"
-              style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
-            >
-              <Paper square className="pricepaper" style={{maxHeight: 500, overflow: 'auto'}}>
-                <div>
+          <Popper style={styles.modal} placement="bottom-start" open={open} anchorEl={this.anchorEl} transition disablePortal>
+            {({ TransitionProps, placement }) => (
+              <Grow
+                {...TransitionProps}
+                id="menu-list-grow"
+                style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
+              >
                 <ClickAwayListener onClickAway={this.handleClose}>
-                {open ? (
-                  <div>
-                  <span className="ameneties">Amenities</span>
-                  <hr />
-                  <Ameneties />
-                  <br />
-                  <br />
-                  <span className="services">Services</span>
-                  <hr />
-                  <Services />
-                  <div className="bottommodal">
-                    <Button 
-                      disableTouchRipple
-                      style={styles.reset}
-                    >
-                      Reset Filter
-                    </Button>
-                    <div className="right">
-                    <Button 
-                      disableTouchRipple
-                      style={styles.cancel}
-                      onClick={this.handleClose}
-                    >
-                      Cancel
-                    </Button>
-                    <Button 
-                      className="applyprice"
-                      disableTouchRipple
-                      style={styles.Applybutton}
-                      onClick={this.handleClose}
-                    >
-                      Apply
-                    </Button>
+                  <Paper square className="pricepaper" style={{maxHeight: 500, overflow: 'auto'}}>
+                    <div>
+                    {open ? (
+                      <div>
+                      <span className="ameneties">Amenities</span>
+                      <hr />
+                      <Ameneties />
+                      <br />
+                      <br />
+                      <span className="services">Services</span>
+                      <hr />
+                      <Services />
+                      <div className="bottommodal">
+                        <Button 
+                          disableTouchRipple
+                          style={styles.reset}
+                        >
+                          Reset Filter
+                        </Button>
+                        <div className="right">
+                        <Button 
+                          disableTouchRipple
+                          style={styles.cancel}
+                          onClick={this.handleClose}
+                        >
+                          Cancel
+                        </Button>
+                        <Button 
+                          className="applyprice"
+                          disableTouchRipple
+                          style={styles.Applybutton}
+                          onClick={this.handleClose}
+                        >
+                          Apply
+                        </Button>
+                        </div>
+                      </div>
+                      </div>
+                    ) : null}
                     </div>
-                  </div>
-                  </div>
-                ) : null}
+                  </Paper>
                 </ClickAwayListener>
-                </div>
-              </Paper>
-            </Grow>
-          )}
-        </Popper>
+              </Grow>
+            )}
+          </Popper>
       </div>
     );
   }

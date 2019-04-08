@@ -90,6 +90,18 @@ div .bars ul li:hover {
   top:4px;
 }
 
+.input form div {
+  border-bottom: none;
+}
+
+.input form div:after {
+  border-bottom: none;
+}
+
+.input form div:before {
+  border-bottom: none;
+}
+
 @media only screen and (max-width: 1023px) {
   .phoneicon {
     display:none;

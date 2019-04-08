@@ -5,22 +5,36 @@ import { fetchPosts } from '../../actions';
 import Grid from '@material-ui/core/Grid';
 
 class PostList extends Component {
-  state = {
-    apts: []
-  };
 
   componentDidMount() {
     this.props.fetchPosts();
   }
 
+  formatPricing(price) {
+    if(this.props.apts[0].pricing.currency === 'EUR') {
+      return `${price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")} €`;
+    } else {
+      return `£${price}`
+    }
+  }
+
   renderList() {
-    return this.props.apts.map(apartment => {
+    // bedroom filter
+    const apartments = this.props.apts.filter(apt => apt.bedroomCount >= this.props.bedrooms.count)
+    // price filter
+    const apartmentsprice = apartments.filter(apt => apt.pricing.price <= this.props.price * 100 )
+    // size filter
+    const apartmentssize = apartmentsprice.filter(apt => apt.details.squareMeters <= Math.floor(this.props.size * 3))
+    // guest filter
+    const apartmentsguests = apartmentssize.filter(apt => apt.details.allowedGuests.persons >= this.props.guests.count)
+    
+    return apartmentsguests.map(apartment => {
       return (
         <Grid key={apartment._id} item lg={4} md={6} xs={12}> 
           <div> 
             <img style={{objectFit: 'cover'}} src={apartment.images.photos[0].path} alt="" width='100%' height="150px"/>
             <div className="containeraps">
-              <div className='aptprice'>£{apartment.pricing.price}</div>
+              <div className='aptprice'>{this.formatPricing(apartment.pricing.price)}</div>
               <div className="monthutil">
                 <div>Per Month</div>
                 <div>Utilities incl.</div>
@@ -36,7 +50,6 @@ class PostList extends Component {
   }
 
   render() {
-    console.log(this.props.apts);
     return (
       <div className='aptlist'>
         <Grid container spacing={24}>
@@ -48,7 +61,13 @@ class PostList extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return { apts: state.PostsReducer }
+  return { 
+    apts: state.ApartmentListReducer, 
+    bedrooms: state.BedroomReducer, 
+    price: state.PriceReducer.price,
+    size: state.SizeReducer.size,
+    guests: state.GuestReducer
+  }
 }
 
 export default connect(mapStateToProps,

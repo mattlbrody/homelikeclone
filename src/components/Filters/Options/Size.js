@@ -4,7 +4,8 @@ import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import Grow from '@material-ui/core/Grow';
 import Paper from '@material-ui/core/Paper';
 import Popper from '@material-ui/core/Popper';
-import SimpleSlider from './Slider';
+import SizeSlider from './SizeSlider';
+import { connect } from 'react-redux';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown} from '@fortawesome/free-solid-svg-icons';
@@ -81,57 +82,36 @@ class Size extends React.Component {
           Size
           <FontAwesomeIcon className="chevron" icon="chevron-down" />
         </Button>
-        <Popper style={styles.modal} placement="bottom-start" open={open} anchorEl={this.anchorEl} transition disablePortal>
-          {({ TransitionProps, placement }) => (
-            <Grow
-              {...TransitionProps}
-              id="menu-list-grow"
-              style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
-            >
-              <Paper square className="pricepaper">
-                  <div>
-                  <ClickAwayListener onClickAway={this.handleClose}>
-                  {open ? (
-                    <div>
-                    <span className="modalprice">Size</span>
-                    <h2 className="pricedisplay">11 ft² - 3229 ft²</h2>
-                    <SimpleSlider className="slider" />
-                    <div className="bottommodal">
-                      <Button 
-                        disableTouchRipple
-                        style={styles.reset}
-                      >
-                        Reset Filter
-                      </Button>
-                      <div className="right">
-                      <Button 
-                        disableTouchRipple
-                        style={styles.cancel}
-                        onClick={this.handleClose}
-                      >
-                        Cancel
-                      </Button>
-                      <Button 
-                        className="applyprice"
-                        disableTouchRipple
-                        style={styles.Applybutton}
-                        onClick={this.handleClose}
-                      >
-                        Apply
-                      </Button>
+          <Popper style={styles.modal} placement="bottom-start" open={open} anchorEl={this.anchorEl} transition disablePortal>
+            {({ TransitionProps, placement }) => (
+              <Grow
+                {...TransitionProps}
+                id="menu-list-grow"
+                style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
+              >
+                <ClickAwayListener onClickAway={this.handleClose}>
+                  <Paper square className="pricepaper">
+                      <div>
+                      {open ? (
+                        <div>
+                        <span className="modalprice">Size</span>
+                        <h2 className="pricedisplay">0 m² - {Math.floor(this.props.size * 3)} m²</h2>
+                        <SizeSlider className="slider" />
+                        </div>
+                      ) : null}
                       </div>
-                    </div>
-                    </div>
-                  ) : null}
-                  </ClickAwayListener>
-                  </div>
-              </Paper>
-            </Grow>
-          )}
-        </Popper>
+                  </Paper>
+                </ClickAwayListener>
+              </Grow>
+            )}
+          </Popper>
       </div>
     );
   }
 }
 
-export default (Size);
+const mapStateToProps = (state) => {
+  return { size: state.SizeReducer.size }
+}
+
+export default connect(mapStateToProps)(Size);

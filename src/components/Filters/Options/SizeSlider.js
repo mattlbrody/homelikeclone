@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Slider from '@material-ui/lab/Slider';
-import { PriceFilter } from '../../../actions';
+import { SizeFilter } from '../../../actions';
 
 const styles = {
   root: {
@@ -12,23 +12,23 @@ const styles = {
   },
 };
 
-class PriceSlider extends React.Component {
+class SizeSlider extends React.Component {
   state = {
     value: 100,
   };
 
   handleChange = (event, value) => {
     this.setState({ value });
-    this.props.dispatch(PriceFilter(value))
+    this.props.dispatch(SizeFilter(value))
   };
 
   render() {
-    console.log(this.props.price.toFixed(0) * 100)
+    console.log(Math.floor(this.props.size * 3))
     return (
       <div style={styles.root}>
         <Slider
           style={styleMedia.slider}
-          value={this.props.price}
+          value={this.state.value}
           aria-labelledby="label"
           onChange={this.handleChange}
         />
@@ -38,7 +38,7 @@ class PriceSlider extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  return { price: state.PriceReducer.price }
+  return { size: state.SizeReducer.size }
 }
 
-export default connect(mapStateToProps)(PriceSlider);
+export default connect(mapStateToProps)(SizeSlider);

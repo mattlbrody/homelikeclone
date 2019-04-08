@@ -1,11 +1,12 @@
 import './ApartmentCountTitle.css';
 import React from 'react';
+import { connect } from 'react-redux';
 import ToolTip from '../ToolTip/ToolTip';
 
-const ApartmentCountTitle = () => {
+ const ApartmentCountTitle = (props) => {
   return (
     <div className="ApartmentCountTitle containerapttitle">
-      <div>267 of 1211 Listings In London</div>
+      <div>{props.totals.totalApartments} of {props.totals.totalCityApartments} Listings In {props.city.locality}</div>
       <div className="tooltip">
         <ToolTip />
       </div>
@@ -13,4 +14,9 @@ const ApartmentCountTitle = () => {
   );
 }
 
-export default ApartmentCountTitle;
+
+const mapStateToProps = (state) => {
+  return { totals: state.ApartmentTotalReducer, city: state.CityNameReducer }
+}
+
+export default connect(mapStateToProps)(ApartmentCountTitle);

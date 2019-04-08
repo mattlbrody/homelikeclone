@@ -9,8 +9,8 @@ export class GoogleMap extends Component {
         google={this.props.google} 
         zoom={13}
         initialCenter={{
-            lat: 51.5073509,
-            lng: -0.04
+            lat: 50.933594,
+            lng: 7.041899
           }}
       >
  

@@ -4,7 +4,8 @@ import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import Grow from '@material-ui/core/Grow';
 import Paper from '@material-ui/core/Paper';
 import Popper from '@material-ui/core/Popper';
-import SimpleSlider from './Slider';
+import PriceSlider from './Slider';
+import { connect } from 'react-redux';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown} from '@fortawesome/free-solid-svg-icons';
@@ -81,57 +82,36 @@ class Price extends React.Component {
           Price
         <FontAwesomeIcon className="chevron" icon="chevron-down" />
         </Button>
-        <Popper style={styles.modal} placement="bottom-start" open={open} anchorEl={this.anchorEl} transition disablePortal>
-          {({ TransitionProps, placement }) => (
-            <Grow
-              {...TransitionProps}
-              id="menu-list-grow"
-              style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
-            >
-              <Paper square className="pricepaper">
-                <div>
-                <ClickAwayListener onClickAway={this.handleClose}>
-                {open ? (
+          <Popper style={styles.modal} placement="bottom-start" open={open} anchorEl={this.anchorEl} transition disablePortal>
+            {({ TransitionProps, placement }) => (
+              <Grow
+                {...TransitionProps}
+                id="menu-list-grow"
+                style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
+              >
+              <ClickAwayListener onClickAway={this.handleClose}>
+                <Paper square className="pricepaper">
                   <div>
-                  <span className="modalprice">Price</span>
-                  <h2 className="pricedisplay">$100 - $10,000</h2>
-                  <SimpleSlider className="slider" />
-                  <div className="bottommodal">
-                    <Button 
-                      disableTouchRipple
-                      style={styles.reset}
-                    >
-                      Reset Filter
-                    </Button>
-                    <div className="right">
-                    <Button 
-                      disableTouchRipple
-                      style={styles.cancel}
-                      onClick={this.handleClose}
-                    >
-                      Cancel
-                    </Button>
-                    <Button 
-                      className="applyprice"
-                      disableTouchRipple
-                      style={styles.Applybutton}
-                      onClick={this.handleClose}
-                    >
-                      Apply
-                    </Button>
+                  {open ? (
+                    <div>
+                    <span className="modalprice">Price</span>
+                    <h2 className="pricedisplay">0 € - {this.props.price.toFixed(0) * 100} €</h2>
+                    <PriceSlider className="slider" />
                     </div>
+                  ) : null}
                   </div>
-                  </div>
-                ) : null}
+                </Paper>
                 </ClickAwayListener>
-                </div>
-              </Paper>
-            </Grow>
-          )}
-        </Popper>
+              </Grow>
+            )}
+          </Popper>
       </div>
     );
   }
 }
 
-export default (Price);
+const mapStateToProps = (state) => {
+  return { price: state.PriceReducer.price }
+}
+
+export default connect(mapStateToProps)(Price);

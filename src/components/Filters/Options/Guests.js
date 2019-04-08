@@ -4,6 +4,7 @@ import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import Grow from '@material-ui/core/Grow';
 import Paper from '@material-ui/core/Paper';
 import Popper from '@material-ui/core/Popper';
+import { connect } from 'react-redux';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faPlusCircle, faMinusCircle } from '@fortawesome/free-solid-svg-icons';
@@ -72,6 +73,22 @@ class Guests extends React.Component {
     this.setState({ open: false });
   };
 
+  //action to handle incrementing
+  increment = () => {
+    this.props.dispatch({ type: 'GUEST_INCREMENT' });
+  }
+  //action to handle decrementing
+  decrement = () => {
+    if(this.props.count > 0 ) {
+      this.props.dispatch({ type: 'GUEST_DECREMENT' });
+    }
+  }
+
+  //action to handle reseting the filter
+  filterReset = () => {
+    this.props.dispatch({ type: 'GUESTS_RESET' });
+  }
+
   render() {
     const { open } = this.state;
 
@@ -90,63 +107,68 @@ class Guests extends React.Component {
           Guests
           <FontAwesomeIcon className="chevron" icon="chevron-down" />
         </Button>
-        <Popper style={styles.modal} placement="bottom-start" open={open} anchorEl={this.anchorEl} transition disablePortal>
-          {({ TransitionProps, placement }) => (
-            <Grow
-              {...TransitionProps}
-              id="menu-list-grow"
-              style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
-            >
-              <Paper square className="pricepaper">
-                <div>
+          <Popper style={styles.modal} placement="bottom-start" open={open} anchorEl={this.anchorEl} transition disablePortal>
+            {({ TransitionProps, placement }) => (
+              <Grow
+                {...TransitionProps}
+                id="menu-list-grow"
+                style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
+              >
                 <ClickAwayListener onClickAway={this.handleClose}>
-                {open ? (
-                  <div>
-                  <span className="guestprice">Guests</span>
-                  <br />
-                  <Button style={{backgroundColor: 'transparent'}} disableTouchRipple>
-                  <FontAwesomeIcon style={styles.minus} className="minus" icon="minus-circle" />
-                  </Button>
-                  0
-                  <Button style={{backgroundColor: 'transparent'}} disableTouchRipple>
-                  <FontAwesomeIcon style={styles.plus} className="plus" icon="plus-circle" />
-                  </Button>
-                  <div className="bottommodal">
-                    <Button 
-                      disableTouchRipple
-                      style={styles.reset}
-                    >
-                      Reset Filter
-                    </Button>
-                    <div className="right">
-                    <Button 
-                      disableTouchRipple
-                      style={styles.cancel}
-                      onClick={this.handleClose}
-                    >
-                      Cancel
-                    </Button>
-                    <Button 
-                      className="applyprice"
-                      disableTouchRipple
-                      style={styles.Applybutton}
-                      onClick={this.handleClose}
-                    >
-                      Apply
-                    </Button>
+                  <Paper square className="pricepaper">
+                    <div>
+                    {open ? (
+                      <div>
+                      <span className="guestprice">Guests</span>
+                      <br />
+                      <Button onClick={this.decrement} style={{backgroundColor: 'transparent'}} disableTouchRipple>
+                      <FontAwesomeIcon style={styles.minus} className="minus" icon="minus-circle" />
+                      </Button>
+                      <span>{this.props.count}</span>
+                      <Button onClick={this.increment} style={{backgroundColor: 'transparent'}} disableTouchRipple>
+                      <FontAwesomeIcon style={styles.plus} className="plus" icon="plus-circle" />
+                      </Button>
+                      <div className="bottommodal">
+                        <Button 
+                          disableTouchRipple
+                          style={styles.reset}
+                          onClick={this.filterReset}
+                        >
+                          Reset Filter
+                        </Button>
+                        <div className="right">
+                        <Button 
+                          disableTouchRipple
+                          style={styles.cancel}
+                          onClick={this.handleClose}
+                        >
+                          Cancel
+                        </Button>
+                        <Button 
+                          className="applyprice"
+                          disableTouchRipple
+                          style={styles.Applybutton}
+                          onClick={this.handleClose}
+                        >
+                          Apply
+                        </Button>
+                        </div>
+                      </div>
+                      </div>
+                    ) : null}
                     </div>
-                  </div>
-                  </div>
-                ) : null}
+                  </Paper>
                 </ClickAwayListener>
-                </div>
-              </Paper>
-            </Grow>
-          )}
-        </Popper>
+              </Grow>
+            )}
+          </Popper>
       </div>
     );
   }
 }
 
-export default (Guests);
+const mapStateToProps = (state) => {
+  return { count: state.GuestReducer.count }
+}
+
+export default connect(mapStateToProps)(Guests);
