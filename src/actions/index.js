@@ -26,6 +26,13 @@ export const SizeFilter = (size) => {
   }
 }
 
+export const aptReset = () => {
+  return {
+    type: 'APARTMENT_RESET',
+    paylod: []
+  }
+}
+
 
 // search by city name
 export const fetchData = (city) => {

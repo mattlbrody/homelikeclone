@@ -144,14 +144,6 @@ class Guests extends React.Component {
                         >
                           Cancel
                         </Button>
-                        <Button 
-                          className="applyprice"
-                          disableTouchRipple
-                          style={styles.Applybutton}
-                          onClick={this.handleClose}
-                        >
-                          Apply
-                        </Button>
                         </div>
                       </div>
                       </div>

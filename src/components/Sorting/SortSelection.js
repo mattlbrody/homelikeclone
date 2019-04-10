@@ -8,6 +8,7 @@ class SortSelection extends React.Component {
 
   handleChange = event => {
     this.setState({ value: event.target.value });
+    alert("I don't have access to this data and couldn't do anything with the Sorting filters :(")
   };
 
   render() {

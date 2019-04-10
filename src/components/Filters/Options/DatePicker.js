@@ -21,7 +21,12 @@ class DatePickerUI extends React.Component {
 
   handleDateChange = date => {
     this.setState({ selectedDateFirst: date, selectedDateSecond: date });
+
   };
+
+  handleClick = () => {
+    alert("I don't have access to this data and couldn't do anything with the Date filters :(")
+  }
 
   render() {
     const { classes } = this.props;
@@ -36,12 +41,14 @@ class DatePickerUI extends React.Component {
             label="Check-In"
             value={selectedDateFirst}
             onChange={this.handleDateChange}
+            onClick={this.handleClick}
           />
           <DatePicker
             margin="normal"
             label="Check-Out"
             value={selectedDateSecond}
             onChange={this.handleDateChange}
+            onClick={this.handleClick}
           />
         </Grid>
       </MuiPickersUtilsProvider>

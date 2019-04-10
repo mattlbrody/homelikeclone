@@ -29,6 +29,16 @@
   margin-top:10px;
 }
 
+.tileLinks {
+  text-decoration: none;
+}
+
+.loader {
+  margin: 0 auto;
+  padding-top: 30%;
+  text-align:center;
+}
+
 @media only screen and (max-width: 990px) {
   .aptlist {
     height:70vh;

@@ -43,6 +43,11 @@ class Bars extends React.Component {
     this.setState({ open: false });
   };
 
+  handleClick = () => {
+    alert("Wanted to keep this simple-ish, so I didn't include authentication")
+  }
+
+
   render() {
     const { open } = this.state;
 
@@ -70,8 +75,8 @@ class Bars extends React.Component {
               <Paper style={{marginTop: '30px'}} square>
                 <ClickAwayListener onClickAway={this.handleClose}>
                   <MenuList>
-                    <MenuItem style={styles.menuItem} onClick={this.handleClose}>Login</MenuItem>
-                    <MenuItem style={styles.menuItem} onClick={this.handleClose}>Register</MenuItem>
+                    <MenuItem style={styles.menuItem} onClick={this.handleClick}>Login</MenuItem>
+                    <MenuItem style={styles.menuItem} onClick={this.handleClick}>Register</MenuItem>
                   </MenuList>
                 </ClickAwayListener>
               </Paper>

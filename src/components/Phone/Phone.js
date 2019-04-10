@@ -71,22 +71,22 @@ class Phone extends React.Component {
           style={{marginTop: '30px'}}
         >
           <Typography style={{color: 'rgb(76, 91, 92)'}}>
-            <img height="9px" src="http://codifyacademy.com/britain.svg" alt="english" /> 
+            <img height="9px" style={{marginRight: '7px'}} src="http://codifyacademy.com/britain.svg" alt="english" /> 
             +44 208 068 50 07
           </Typography>
            <br />
           <Typography style={{color: 'rgb(76, 91, 92)'}}>
-            <img height="9px" src="http://codifyacademy.com/germanflag.svg" alt="german" />
+            <img height="9px" style={{marginRight: '7px'}} src="http://codifyacademy.com/germanflag.svg" alt="german" />
             +49 221 988 611 88
           </Typography>
            <br />
           <Typography style={{color: 'rgb(76, 91, 92)'}}>
-            <img height="9px" src="http://codifyacademy.com/swissflag.svg" alt="swiss" />
+            <img height="9px" style={{marginRight: '7px'}} src="http://codifyacademy.com/swissflag.svg" alt="swiss" />
             +41 435 08 46 66
           </Typography>
            <br />
           <Typography style={{color: 'rgb(76, 91, 92)'}}>
-            <img height="9px" src="http://codifyacademy.com/spainflag.svg" alt="spain" />
+            <img height="9px" style={{marginRight: '7px'}} src="http://codifyacademy.com/spainflag.svg" alt="spain" />
             +34 932 208 096
           </Typography>
            <br />

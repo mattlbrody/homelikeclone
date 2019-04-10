@@ -74,6 +74,10 @@ class More extends React.Component {
     this.setState({ open: false });
   };
 
+  handleClick = () => {
+    alert("I don't have access to this data and couldn't do anything with the More filters :(")
+  }
+
   render() {
     const { open } = this.state;
 
@@ -116,6 +120,7 @@ class More extends React.Component {
                         <Button 
                           disableTouchRipple
                           style={styles.reset}
+                          onClick={this.handleClose}
                         >
                           Reset Filter
                         </Button>
@@ -131,7 +136,7 @@ class More extends React.Component {
                           className="applyprice"
                           disableTouchRipple
                           style={styles.Applybutton}
-                          onClick={this.handleClose}
+                          onClick={this.handleClick}
                         >
                           Apply
                         </Button>

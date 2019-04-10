@@ -65,22 +65,22 @@ class Language extends React.Component {
           style={{marginTop: '30px'}}
         >
           <Typography style={{color: 'rgb(76, 91, 92)'}}>
-            <img height="9px" src="http://codifyacademy.com/germanflag.svg" alt="german" />
+            <img height="9px" style={{marginRight: '7px'}} src="http://codifyacademy.com/germanflag.svg" alt="german" />
             Deutsch
           </Typography>
            <br />
           <Typography style={{color: 'rgb(76, 91, 92)'}}>
-            <img height="9px" src="http://codifyacademy.com/spainflag.svg" alt="spain" />
+            <img height="9px" style={{marginRight: '7px'}} src="http://codifyacademy.com/spainflag.svg" alt="spain" />
             Español
           </Typography>
            <br />
           <Typography style={{color: 'rgb(76, 91, 92)'}}>
-            <img height="9px" src="http://codifyacademy.com/nederlandsflag.svg" alt="netherlands" />
+            <img height="9px" style={{marginRight: '7px'}} src="http://codifyacademy.com/nederlandsflag.svg" alt="netherlands" />
             Nederlands
           </Typography>
            <br />
           <Typography style={{color: 'rgb(76, 91, 92)'}}>
-            <img height="9px" src="http://codifyacademy.com/franceflag.svg" alt="francd" />
+            <img height="9px" style={{marginRight: '7px'}} src="http://codifyacademy.com/franceflag.svg" alt="francd" />
             Français
           </Typography>
         </Popover>

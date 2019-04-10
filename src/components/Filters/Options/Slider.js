@@ -6,6 +6,7 @@ import { PriceFilter } from '../../../actions';
 const styles = {
   root: {
     width: 300,
+    marginBottom: '30px'
   },
   slider: {
     padding: '22px 0px',
@@ -23,7 +24,6 @@ class PriceSlider extends React.Component {
   };
 
   render() {
-    console.log(this.props.price.toFixed(0) * 100)
     return (
       <div style={styles.root}>
         <Slider

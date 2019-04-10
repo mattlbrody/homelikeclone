@@ -6,6 +6,7 @@ import { SizeFilter } from '../../../actions';
 const styles = {
   root: {
     width: 300,
+    marginBottom: '30px'
   },
   slider: {
     padding: '22px 0px',

@@ -112,6 +112,7 @@ class Sort extends React.Component {
                     <Button 
                       disableTouchRipple
                       style={styles.reset}
+                      onClick={this.handleClose}
                     >
                       Reset Filter
                     </Button>
@@ -122,14 +123,6 @@ class Sort extends React.Component {
                       onClick={this.handleClose}
                     >
                       Cancel
-                    </Button>
-                    <Button 
-                      className="applyprice"
-                      disableTouchRipple
-                      style={styles.Applybutton}
-                      onClick={this.handleClose}
-                    >
-                      Apply
                     </Button>
                     </div>
                   </div>

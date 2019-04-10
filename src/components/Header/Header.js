@@ -5,7 +5,7 @@ import Phone from '../Phone/Phone';
 import Language from '../Language/Language'
 import Bars from '../Bars/Bars';
 import Input from '@material-ui/core/Input';
-import { fetchData } from '../../actions';
+import { fetchData, aptReset } from '../../actions';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch} from '@fortawesome/free-solid-svg-icons';
@@ -17,6 +17,7 @@ library.add(faSearch)
 class Header extends Component {
 
   handleInput = (input) => {
+    this.props.aptReset({ type: 'APARTMENT_RESET' })
     this.props.fetchData(input);
   }
 
@@ -24,21 +25,21 @@ class Header extends Component {
     return (
       <div className="general-container">
         <div className="container splitleft">
-        <img className="homelikelogo" src="http://codifyacademy.com/homelikelogo.png" height="26px" alt="log" />
-        <img className="mobilelogo" src="http://codifyacademy.com/mobilelogo.png" height="20x" alt="log" />
-        <div className="searchicon">
-          <FontAwesomeIcon icon="search" />
-        </div>
-        <div className="input">
-          <form onSubmit={(event) => {
-            event.preventDefault()
-            let input = event.target.userInput.value
-            this.handleInput(input)
-            event.target.userInput.value = ''
-          }}>
-            <Input type="text" name="userInput" placeholder="Search by city" />
-          </form>
-        </div>
+          <img className="homelikelogo" src="http://codifyacademy.com/homelikelogo.png" height="26px" alt="log" />
+          <img className="mobilelogo" src="http://codifyacademy.com/mobilelogo.png" height="20x" alt="log" />
+          <div className="searchicon">
+            <FontAwesomeIcon icon="search" />
+          </div>
+          <div className="input">
+            <form onSubmit={(event) => {
+              event.preventDefault()
+              let input = event.target.userInput.value
+              this.handleInput(input)
+              event.target.userInput.value = ''
+            }}>
+              <Input type="text" name="userInput" placeholder="Search by city" />
+            </form>
+          </div>
         </div>
         <div className="container">
           <div className="phoneicon">
@@ -62,5 +63,5 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps,
-  {fetchData}
+  {fetchData, aptReset}
 )(Header);

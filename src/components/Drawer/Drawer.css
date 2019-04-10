@@ -1,0 +1,234 @@
+.drawerWidth {
+  width: 600px;
+}
+
+.drawerContainer {
+  position: -webkit-sticky;
+  position: sticky;
+  top:0;
+  background-color: white;
+  padding: 20px;
+}
+
+.drawernav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.shareiconsdrawer span {
+  margin-right:10px;
+}
+
+button.drawerbutton {
+  height: 24px;
+  min-width: 64px;
+  margin-right: 16px;
+  cursor: pointer;
+  border-radius: 2px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(76, 91, 92);
+  padding: 2px;  
+  font-size:11px;
+  color: rgb(76, 91, 92);
+  padding: 0 5px;
+}
+
+.drawernav span { 
+  color: rgb(76, 91, 92);
+  font-family: sans-serif;
+}
+
+h2.locationtitle {
+  font-size: calc(2.28571em);
+  line-height: 40px;
+  color: rgb(76, 91, 92);
+  font-weight: 100;
+  display: block;
+  margin: 0px 0px 8px;
+  font-family:sans-serif;
+}
+
+.shareiconsdrawer {
+  color: rgb(76, 91, 92);
+}
+
+.imagegallery {
+  margin-top: 40px;
+}
+
+.imagesBottom {
+  display: flex;
+  justify-content: center;
+}
+
+.mainimage {
+  width:100%;
+  height: 300px;
+  overflow:hidden;
+}
+
+.mainimage img {
+  width: 100%;
+}
+
+.imagesBottom div {
+  margin: 0 2px;
+}
+.imagesBottom {
+  margin-top:4px;
+}
+
+.imagesBottom .lastImage {
+  margin-right: 0;
+}
+
+.imagesBottom .firstImage {
+  margin-left: 0;
+}
+
+
+.imagesBottom div img {
+  max-width:100%;
+}
+
+.imagesBottom div {
+  height:50px;
+  overflow:hidden;
+}
+
+.firstrowicons {
+  display: flex;
+  justify-content: space-between;
+  margin: 30px 50px;
+  text-align:center;
+}
+
+.secondrowicons {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 130px;
+  text-align:center;
+}
+
+.apticon {
+  color: rgb(76, 91, 92);
+}
+
+.apticon .faicontext {
+  font-size: 12px;
+  font-family: sans-serif;
+  font-weight: 100;
+}
+
+.circleicon {
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  height: 40px;
+  width: 40px;
+  border-radius: 100%;
+  border-width: 1px;
+  border-style: solid;
+  display:flex;
+  margin: 0 auto;
+  margin-bottom: 8px;
+}
+
+.aptfootermenu {
+  display: flex;
+  flex-direction: row;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  height: 82px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 20px 50px;
+  padding: 8px 16px;
+  margin: 0px auto;
+  position: sticky;
+  bottom:0;
+}
+
+.nomorecontnet {
+  font-size: 20px;
+  text-align:center;
+  width: 100%;
+  margin: 50px 0;
+}
+
+.aptbtnreq .requestAptBTN {
+  font-family: Roboto, sans-serif;
+  display: inline-flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+  font-size: calc(1em);
+  line-height: 24px;
+  text-align: center;
+  width: initial;
+  text-transform: initial;
+  background-color: rgb(102, 153, 204);
+  color: rgb(255, 255, 255);
+  box-sizing: border-box;
+  font-weight: 400;
+  box-shadow: transparent 0px 0px 0px;
+  padding: 8px;
+  outline: none;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(102, 153, 204);
+  border-image: initial;
+  border-radius: 2px;
+  transition: all 0.3s ease-in-out 0s;
+  text-decoration: none;
+  margin: 0px;
+}
+
+.aptfootermenu .priceavailability div:first-child {
+  color: rgb(76, 91, 92);
+  font-family: Roboto, sans-serif;
+  font-size: 16px;
+  font-weight:300;
+  margin-bottom: 5px;
+}
+
+.aptfootermenu .priceavailability div:last-child {
+  color: rgb(137, 147, 148);
+  font-family: Roboto, sans-serif;
+  font-size: 12px;
+  font-weight:300;
+}
+
+@media (max-width: 1400px) {
+  .drawerWidth {
+    width: 500px;
+  }
+}
+
+@media (max-width: 1400px) {
+  .drawerWidth {
+    width: 400px;
+  }
+}
+
+.drawerButtonNotVisible {
+  display:none;
+}
+
+@media (max-width: 990px) {
+  .drawerWidth {
+    display:none;
+  }
+  .drawerButtonVisible {
+    display:none;
+  }
+  .drawerButtonNotVisible {
+    display:block;
+  }
+}
