@@ -40,13 +40,13 @@ Material UI also provided some basic functionality, such as dropdowns for the fi
 
 Whatever wasn't done using Material UI was built with CSS.
 
-Fontawesome was used for the icons. I could have matched most of the icons exactly if I would have paid to use fontawesome, but that seemed unecessary.
+Font Awesome was used for the icons. I could have matched most of the icons exactly if I would have paid to use Font Awesome, but that seemed unnecessary.
 
 ### React and Redux
 
 This is a fairly complex application with a lot of different components, which makes react and redux ideal for this project.
 
-The data is stored in the redux store and then sent out to each component that needs it, which makes this app much more managable than a pure react app.
+The data is stored in the redux store and then sent out to each component that needs it, which makes this app much more manageable than a pure react app.
 
 ### Google Maps
 
@@ -54,7 +54,7 @@ This was done using react-google-maps.
 
 The map changes based on what city is being searched. 
 
-I might add each apartment as a marker, and have each marker display that aparmtent when it's clicked, but that'll be functionality for the next version.
+I might add each apartment as a marker, and have each marker display that apartment when it's clicked, but that'll be functionality for the next version.
 
 ### Responsiveness
 
