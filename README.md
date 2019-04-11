@@ -14,9 +14,9 @@ While there was extensive data, it was limited compared to the full app. This is
 
 ### The cities that can be searched
 
-#Berlin,
-#London,
-#Vienna,
+Berlin,
+London,
+Vienna,
 Barcelona,
 Frankfurt,
 Zurich,
