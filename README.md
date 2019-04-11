@@ -14,15 +14,15 @@ While there was extensive data, it was limited compared to the full app. This is
 
 ### The cities that can be searched
 
-Berlin
-London
-Vienna
-Barcelona
-Frankfurt
-Zurich
-Cologne
-Hamburg
-Munich
+Berlin,
+London,
+Vienna,
+Barcelona,
+Frankfurt,
+Zurich,
+Cologne,
+Hamburg,
+Munich,
 
 I could have pulled in as many cities as I wanted, but figured this would be enough to demonstrate what the app can do.
 
