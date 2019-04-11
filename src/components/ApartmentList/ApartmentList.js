@@ -86,56 +86,63 @@ class PostList extends Component {
   }
   
   renderList() {
-    // bedroom filter
-    const apartments = this.props.apts.filter(apt => apt.bedroomCount >= this.props.bedrooms.count)
-    // price filter
-    const apartmentsprice = apartments.filter(apt => apt.pricing.price <= this.props.price * 100 )
-    // size filter
-    const apartmentssize = apartmentsprice.filter(apt => apt.details.squareMeters <= Math.floor(this.props.size * 3))
-    // guest filter
-    const apartmentsguests = apartmentssize.filter(apt => apt.details.allowedGuests.persons >= this.props.guests.count)
-    
-    console.log(apartments)
-    if (apartmentsguests.length > 0) {
-      return apartmentsguests.map(apartment => {
+    if(this.props.apts !== 'No data available for that city') {
+      // bedroom filter
+      const apartments = this.props.apts.filter(apt => apt.bedroomCount >= this.props.bedrooms.count)
+      // price filter
+      const apartmentsprice = apartments.filter(apt => apt.pricing.price <= this.props.price * 100 )
+      // size filter
+      const apartmentssize = apartmentsprice.filter(apt => apt.details.squareMeters <= Math.floor(this.props.size * 3))
+      // guest filter
+      const apartmentsguests = apartmentssize.filter(apt => apt.details.allowedGuests.persons >= this.props.guests.count)
+      
+      if (apartmentsguests.length > 0) {
+        return apartmentsguests.map(apartment => {
+          return (
+            <Grid key={apartment._id} item lg={4} md={6} xs={12}> 
+              <div className="drawerButtonVisible" onClick={this.toggleDrawer('right', true, apartment)}> 
+                <img style={{objectFit: 'cover'}} src={apartment.images.photos[0].path} alt="" width='100%' height="150px"/>
+                <div className="containeraps">
+                  <div className='aptprice'>{this.formatPricing(apartment.pricing.price)}</div>
+                  <div className="monthutil">
+                    <div>Per Month</div>
+                    <div>Utilities incl.</div>
+                  </div>
+                </div>
+                <div className="movein">
+                  from 29.24.2019 - {parseInt(apartment.details.squareMeters)} m² - {apartment.bedroomCount} bedroom
+                </div>
+              </div>
+              <div className="drawerButtonNotVisible"> 
+                <img style={{objectFit: 'cover'}} src={apartment.images.photos[0].path} alt="" width='100%' height="150px"/>
+                <div className="containeraps">
+                  <div className='aptprice'>{this.formatPricing(apartment.pricing.price)}</div>
+                  <div className="monthutil">
+                    <div>Per Month</div>
+                    <div>Utilities incl.</div>
+                  </div>
+                </div>
+                <div className="movein">
+                  from 29.24.2019 - {parseInt(apartment.details.squareMeters)} m² - {apartment.bedroomCount} bedroom
+                </div>
+              </div>
+            </Grid>
+          )
+        })
+      } else if (this.props.apts.length === 0 && apartmentsguests.length === 0) {
+        return <Loader className="loader" />
+      } else if (this.props.apts.length > 0 && apartmentsguests.length === 0) {
         return (
-          <Grid key={apartment._id} item lg={4} md={6} xs={12}> 
-            <div className="drawerButtonVisible" onClick={this.toggleDrawer('right', true, apartment)}> 
-              <img style={{objectFit: 'cover'}} src={apartment.images.photos[0].path} alt="" width='100%' height="150px"/>
-              <div className="containeraps">
-                <div className='aptprice'>{this.formatPricing(apartment.pricing.price)}</div>
-                <div className="monthutil">
-                  <div>Per Month</div>
-                  <div>Utilities incl.</div>
-                </div>
-              </div>
-              <div className="movein">
-                from 29.24.2019 - {parseInt(apartment.details.squareMeters)} m² - {apartment.bedroomCount} bedroom
-              </div>
-            </div>
-            <div className="drawerButtonNotVisible"> 
-              <img style={{objectFit: 'cover'}} src={apartment.images.photos[0].path} alt="" width='100%' height="150px"/>
-              <div className="containeraps">
-                <div className='aptprice'>{this.formatPricing(apartment.pricing.price)}</div>
-                <div className="monthutil">
-                  <div>Per Month</div>
-                  <div>Utilities incl.</div>
-                </div>
-              </div>
-              <div className="movein">
-                from 29.24.2019 - {parseInt(apartment.details.squareMeters)} m² - {apartment.bedroomCount} bedroom
-              </div>
-            </div>
-          </Grid>
+          <div className="loader">
+            <div>No apartments meet your requirements</div>
+            <div>try resetting your filters</div>
+          </div>
         )
-      })
-    } else if (this.props.apts.length === 0 && apartmentsguests.length === 0) {
-      return <Loader className="loader" />
-    } else if (this.props.apts.length > 0 && apartmentsguests.length === 0) {
+      } 
+    } else {
       return (
         <div className="loader">
-          <div>No apartments meet your requirements</div>
-          <div>try resetting your filters</div>
+          <div>No data available for that city</div>
         </div>
       )
     }

@@ -1,32 +1,33 @@
-import React, { Component } from 'react';
-import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
+import React from 'react';
+import { connect } from 'react-redux';
+import MapDetails from './MapDetails';
 
-export class GoogleMap extends Component {
+class Map extends React.Component {
+
+  renderMap = () => {
+    return (
+      <MapDetails
+        googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-L-IikkM6BZ_3Z2QIzbkx4pdAkP76tok&v=3.exp&libraries=geometry,drawing,places"
+        loadingElement={<div style={{ height: `100%` }} />}
+        containerElement={<div style={{ height: `100vh`}} />}
+        mapElement={<div style={{ height: `100%` }} />}
+        mapLat={Number(parseFloat(this.props.city.lat))}
+        mapLng={Number(parseFloat(this.props.city.lng))}
+      />
+    )
+  }
+
   render() {
     return (
-      <Map 
-        style={{margin: '0', overflow: 'hidden'}} 
-        google={this.props.google} 
-        zoom={13}
-        initialCenter={{
-            lat: 50.933594,
-            lng: 7.041899
-          }}
-      >
- 
-        <Marker onClick={this.onMarkerClick}
-                name={'Current location'} />
- 
-        <InfoWindow onClose={this.onInfoWindowClose}>
-            <div>
-              <h1>London</h1>
-            </div>
-        </InfoWindow>
-      </Map>
-    );
+      <div>
+        {this.renderMap()}
+      </div>
+    )
   }
 }
- 
-export default GoogleApiWrapper({
-  apiKey: ('AIzaSyB-L-IikkM6BZ_3Z2QIzbkx4pdAkP76tok')
-})(GoogleMap)
+
+const mapStateToProps = (state) => {
+  return { city: state.CityNameReducer }
+}
+
+export default connect(mapStateToProps)(Map);

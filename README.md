@@ -1,68 +1,65 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## TheHomelike.com replica
 
-## Available Scripts
+A functional and visual replica of thehomelike.com built using React and Redux with data I was able to get from their API.
 
-In the project directory, you can run:
+This is how I did it.
 
-### `npm start`
+### The data
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+First, I needed to get data to pull in to use when displaying cities, apartments, pictures, etc.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+I did this by pulling in JSON 'snapshots' from the main app. I found the API headers and was able to create JSON files for each city containing 24 apartments per city.
 
-### `npm test`
+While there was extensive data, it was limited compared to the full app. This is why some of the filters (date and more) are not functioning in the app. There is also additional apartment data missing at the bottom of the apartment drawer simply because the data wasn't scrapped.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### The cities that can be searched
 
-### `npm run build`
+Berlin
+London
+Vienna
+Barcelona
+Frankfurt
+Zurich
+Cologne
+Hamburg
+Munich
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+I could have pulled in as many cities as I wanted, but figured this would be enough to demonstrate what the app can do.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+### Filters
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+These can be used to specify what the user wants in an apartment.
 
-### `npm run eject`
+I changed some of the design to reduce user clicks, which I believe would good UX to test. For Price, Guests, Bedrooms, and Size, I removed the apply filter buttons and instead made each filter automatically take effect when it's changed. This allows users to see the change immediately, even while the filter is still open.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Design resources
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+A lot of the design layout was built using Material UI, this simplified the project significantly as the design style is similar to thehomelike.com. 
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Material UI also provided some basic functionality, such as dropdowns for the filters and the drawer which displays each apartment.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Whatever wasn't done using Material UI was built with CSS.
 
-## Learn More
+Fontawesome was used for the icons. I could have matched most of the icons exactly if I would have paid to use fontawesome, but that seemed unecessary.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### React and Redux
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+This is a fairly complex application with a lot of different components, which makes react and redux ideal for this project.
 
-### Code Splitting
+The data is stored in the redux store and then sent out to each component that needs it, which makes this app much more managable than a pure react app.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+### Google Maps
 
-### Analyzing the Bundle Size
+This was done using react-google-maps.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+The map changes based on what city is being searched. 
 
-### Making a Progressive Web App
+I might add each apartment as a marker, and have each marker display that aparmtent when it's clicked, but that'll be functionality for the next version.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+### Responsiveness
 
-### Advanced Configuration
+while the app is responsive, a lot of the functionality is not. On the main app, a new page is opened when an apartment is clicked. This is functionality that was intentionally left out. 
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+Additionally, the filters are not responsive either.
 
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Both of these features will be added if I do a version 2.

@@ -26,6 +26,7 @@ export const SizeFilter = (size) => {
   }
 }
 
+// Reset filter 
 export const aptReset = () => {
   return {
     type: 'APARTMENT_RESET',
@@ -109,12 +110,8 @@ export const fetchData = (city) => {
       dispatch({ type: 'CITY_NAME', payload: response.data.queryParams})
     }
   } else {
-    return async dispatch => {
-      const response = await jsonPlaceholder.get('https://api.myjson.com/bins/15iffs');
-      
-      dispatch({ type: 'APARTMENT_LIST', payload: response.data.apartments })
-      dispatch({ type: 'APARTMENT_TOTAL', payload: response.data})
-      dispatch({ type: 'CITY_NAME', payload: response.data.queryParams})
+    return dispatch => {
+      dispatch({ type: 'APARTMENT_LIST', payload: 'No data available for that city' })
     }
   }
 }
