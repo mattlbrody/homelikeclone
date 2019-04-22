@@ -16,7 +16,7 @@
   align-items: center;
 }
 
-.drawernav .fontaicon {
+.drawernav button {
   margin-right: 10px;
 }
 
@@ -24,7 +24,7 @@
   margin-right:10px;
 }
 
-button.drawerbutton {
+.drawernav button.drawerbutton, .seconddrawernav button.drawerbutton {
   height: 24px;
   min-width: 64px;
   margin-right: 16px;
