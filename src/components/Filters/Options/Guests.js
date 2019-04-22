@@ -11,54 +11,6 @@ import { faChevronDown, faPlusCircle, faMinusCircle } from '@fortawesome/free-so
 
 library.add(faChevronDown, faPlusCircle, faMinusCircle)
 
-const styles = {
-    modal: {
-      width: '360px',
-      zIndex: 99
-    },
-    Applybutton: {
-      backgroundColor: '#6699CB',
-      color:'white',
-      fontWeight: 100,
-      marginLeft: 10,
-      textTransform: 'capitalize'
-    },
-    button: {
-      backgroundColor: 'transparent',
-      color:' rgb(76, 91, 92)',
-      fontWeight: 300,
-      fontSize: '13px',
-      paddingLeft: '0',
-      paddingRight: '0',
-      textTransform: 'capitalize',
-      justifyContent: 'space-between'
-    },
-    reset: {
-      backgroundColor: 'transparent',
-      fontSize:'14px',
-      fontWeight: 100,
-      color: 'tomato',
-      textTransform: 'capitalize'
-    },
-    cancel: {
-      backgroundColor: 'transparent',
-      fontSize:'14px',
-      fontWeight: 100,
-      color: '#6699CB',
-      textTransform: 'capitalize'
-    }, 
-    minus: {
-      fontSize: '22px',
-      marginRight: '30px',
-      backgroundColor: 'transparent'
-    },
-    plus: {
-      fontSize: '22px',
-      marginLeft: '30px',
-      backgroundColor: 'transparent'
-    }
-  }
-
 class Guests extends React.Component {
 
   state = {
@@ -101,13 +53,13 @@ class Guests extends React.Component {
           aria-owns={open ? 'menu-list-grow' : undefined}
           aria-haspopup="true"
           onClick={this.handleToggle}
-          style={styles.button}
+          className="button"
           disableTouchRipple
         >
           Guests
           <FontAwesomeIcon className="chevron" icon="chevron-down" />
         </Button>
-          <Popper style={styles.modal} placement="bottom-start" open={open} anchorEl={this.anchorEl} transition disablePortal>
+          <Popper className="modal" placement="bottom-start" open={open} anchorEl={this.anchorEl} transition disablePortal>
             {({ TransitionProps, placement }) => (
               <Grow
                 {...TransitionProps}
@@ -121,17 +73,17 @@ class Guests extends React.Component {
                       <div>
                       <span className="guestprice">Guests</span>
                       <br />
-                      <Button onClick={this.decrement} style={{backgroundColor: 'transparent'}} disableTouchRipple>
-                      <FontAwesomeIcon style={styles.minus} className="minus" icon="minus-circle" />
+                      <Button onClick={this.decrement} className="minusButton" disableTouchRipple>
+                      <FontAwesomeIcon className="minus" icon="minus-circle" />
                       </Button>
                       <span>{this.props.count}</span>
-                      <Button onClick={this.increment} style={{backgroundColor: 'transparent'}} disableTouchRipple>
-                      <FontAwesomeIcon style={styles.plus} className="plus" icon="plus-circle" />
+                      <Button onClick={this.increment} className="plusButton" disableTouchRipple>
+                      <FontAwesomeIcon className="plus" icon="plus-circle" />
                       </Button>
                       <div className="bottommodal">
                         <Button 
                           disableTouchRipple
-                          style={styles.reset}
+                          className="reset"
                           onClick={this.filterReset}
                         >
                           Reset Filter
@@ -139,7 +91,7 @@ class Guests extends React.Component {
                         <div className="right">
                         <Button 
                           disableTouchRipple
-                          style={styles.cancel}
+                          className="cancel"
                           onClick={this.handleClose}
                         >
                           Cancel

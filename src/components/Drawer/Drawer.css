@@ -16,6 +16,10 @@
   align-items: center;
 }
 
+.drawernav .fontaicon {
+  margin-right: 10px;
+}
+
 .shareiconsdrawer span {
   margin-right:10px;
 }
@@ -203,6 +207,24 @@ h2.locationtitle {
   font-family: Roboto, sans-serif;
   font-size: 12px;
   font-weight:300;
+}
+
+.drawerWidth .fontaicon {
+  margin-right:10px;
+}
+
+.drawerWidth .seconddrawernav {
+  margin: 0 20px 20px 20px;
+}
+
+.drawerWidth .sharemenu {
+  margin-top: 10px;
+  margin-bottom: 25px;
+}
+
+.drawerWidth .drawerbutton {
+  float: right;
+  margin-right: 0;
 }
 
 @media (max-width: 1400px) {

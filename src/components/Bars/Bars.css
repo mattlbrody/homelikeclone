@@ -1,0 +1,15 @@
+.bars .modal {
+  width: 200px;
+  z-index: 999;
+}
+
+.bars .menuItem {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 13px;
+  color: rgb(76, 91, 92);
+}
+
+.bars .paper {
+  margin-top: 30px;
+}

@@ -8,12 +8,6 @@ import { faMapMarkerAlt, faFilePdf, faEnvelope, faBed, faBath, faRulerCombined, 
 
 library.add(faMapMarkerAlt, faFilePdf, faEnvelope, faBed, faBath, faRulerCombined, faUsers, faShoePrints)
 
-const styles = {
-  stanmargin: {
-    margin: '0 20px 20px 20px'
-  }
-};
-
 class TemporaryDrawer extends React.Component {
   state = {
     right: false,
@@ -39,16 +33,15 @@ class TemporaryDrawer extends React.Component {
   }
 
   render() {
-    console.log(this.props.closeDrawer)
     return (
       <div className="drawerWidth">
         <DrawerMenu 
           closeDrawer={this.props.closeDrawer}
         />
-        <div style={styles.stanmargin}>
+        <div className="seconddrawernav">
           <h2 className="locationtitle">{this.props.aptTitle}</h2>
-          <div style={{marginTop: '10px', marginBottom: '25px'}}>
-          <FontAwesomeIcon style={{marginRight: '10px'}} icon="map-marker-alt" />
+          <div className="sharemenu">
+          <FontAwesomeIcon className="fontaicon" icon="map-marker-alt" />
             <span>No data provided for each address</span>
           </div>
           <div className="shareiconsdrawer">
@@ -57,8 +50,8 @@ class TemporaryDrawer extends React.Component {
             <span>X</span>
             <span>in</span>
             <span><FontAwesomeIcon icon="envelope" /></span>
-            <Button onClick={this.handleButtonClick} className="drawerbutton" style={{float:'right', marginRight: '0'}}>
-              <FontAwesomeIcon style={{marginRight: '10px'}} icon="file-pdf" />
+            <Button onClick={this.handleButtonClick} className="drawerbutton">
+              <FontAwesomeIcon className="fontaicon" icon="file-pdf" />
               Download PDF Brochure
             </Button>
           </div>

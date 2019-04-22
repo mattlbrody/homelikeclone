@@ -1,3 +1,4 @@
+import './Language.css';
 import React from 'react';
 import PropTypes from 'prop-types';
 import Popover from '@material-ui/core/Popover';
@@ -11,7 +12,8 @@ const styles = theme => ({
   paper: {
     padding: 20,
     width: 100,
-    backgroundColor: 'rgb(250, 250, 250)'
+    backgroundColor: 'rgb(250, 250, 250)',
+    marginTop: '30px'
   },
 });
 
@@ -34,13 +36,13 @@ class Language extends React.Component {
     const open = Boolean(anchorEl);
 
     return (
-      <div className="container">
+      <div className="container language">
         <Typography
           aria-owns={open ? 'mouse-over-popover' : undefined}
           aria-haspopup="true"
           onMouseEnter={this.handlePopoverOpen}
           onMouseLeave={this.handlePopoverClose}
-          style={{color: 'rgb(76, 91, 92)'}}
+          className="currentLanguage"
         >
           English
         </Typography>
@@ -62,7 +64,6 @@ class Language extends React.Component {
           }}
           onClose={this.handlePopoverClose}
           disableRestoreFocus
-          style={{marginTop: '30px'}}
         >
           <Typography style={{color: 'rgb(76, 91, 92)'}}>
             <img height="9px" style={{marginRight: '7px'}} src="http://codifyacademy.com/germanflag.svg" alt="german" />

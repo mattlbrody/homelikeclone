@@ -3,16 +3,6 @@ import { connect } from 'react-redux';
 import Slider from '@material-ui/lab/Slider';
 import { SizeFilter } from '../../../actions';
 
-const styles = {
-  root: {
-    width: 300,
-    marginBottom: '30px'
-  },
-  slider: {
-    padding: '22px 0px',
-  },
-};
-
 class SizeSlider extends React.Component {
   state = {
     value: 100,
@@ -24,11 +14,10 @@ class SizeSlider extends React.Component {
   };
 
   render() {
-    console.log(Math.floor(this.props.size * 3))
     return (
-      <div style={styles.root}>
+      <div className="sliderdiv">
         <Slider
-          style={styleMedia.slider}
+          className="slider"
           value={this.state.value}
           aria-labelledby="label"
           onChange={this.handleChange}

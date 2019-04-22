@@ -36,6 +36,46 @@
   bottom:10px;
 }
 
+.sortfilter .modal {
+  width: 360px;
+  z-index: 999;
+}
+
+.sortfilter .recommendations {
+  color: rgb(102, 153, 204);
+}
+
+.sortfilter .button {
+  background-color: transparent;
+  font-weight: 300;
+  color: rgb(76, 91, 92);
+  font-size: 13px;
+  padding-left: 0;
+  text-transform: capitalize;
+  justify-content: flex-start;
+  padding-top: 0;
+}
+
+.sortfilter .button:hover, .sortfilter .reset:hover, .sortfilter .cancel:hover {
+  background-color: transparent;
+}
+
+.sortfilter .reset {
+  background-color: transparent;
+  font-size: 14px;
+  font-weight: 100;
+  color: tomato;
+  text-transform: capitalize;
+}
+
+.sortfilter .cancel {
+  background-color: transparent;
+  font-size: 14px;
+  font-weight: 100;
+  color: #6699CB;
+  text-transform: capitalize;
+}
+
 .sortingtext {
   position: relative;
   top:7px;

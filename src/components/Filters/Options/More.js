@@ -12,54 +12,6 @@ import { faChevronDown, faPlusCircle, faMinusCircle } from '@fortawesome/free-so
 
 library.add(faChevronDown, faPlusCircle, faMinusCircle)
 
-const styles = {
-    modal: {
-      width: '360px',
-      zIndex: 99
-    },
-    Applybutton: {
-      backgroundColor: '#6699CB',
-      color:'white',
-      fontWeight: 100,
-      marginLeft: 10,
-      textTransform: 'capitalize'
-    },
-    button: {
-      backgroundColor: 'transparent',
-      fontWeight: 300,
-      color:' rgb(76, 91, 92)',
-      fontSize: '13px',
-      paddingLeft: '0',
-      paddingRight: '0',
-      textTransform: 'capitalize',
-      justifyContent: 'space-between'
-    },
-    reset: {
-      backgroundColor: 'transparent',
-      fontSize:'14px',
-      fontWeight: 100,
-      color: 'tomato',
-      textTransform: 'capitalize'
-    },
-    cancel: {
-      backgroundColor: 'transparent',
-      fontSize:'14px',
-      fontWeight: 100,
-      color: '#6699CB',
-      textTransform: 'capitalize'
-    }, 
-    minus: {
-      fontSize: '22px',
-      marginRight: '30px',
-      backgroundColor: 'transparent'
-    },
-    plus: {
-      fontSize: '22px',
-      marginLeft: '30px',
-      backgroundColor: 'transparent'
-    }
-  }
-
 class More extends React.Component {
 
   state = {
@@ -82,7 +34,7 @@ class More extends React.Component {
     const { open } = this.state;
 
     return (
-      <div>
+      <div className="seperatordiv more">
         <Button
           buttonRef={node => {
             this.anchorEl = node;
@@ -90,13 +42,13 @@ class More extends React.Component {
           aria-owns={open ? 'menu-list-grow' : undefined}
           aria-haspopup="true"
           onClick={this.handleToggle}
-          style={styles.button}
+          className="button"
           disableTouchRipple
         >
           More
           <FontAwesomeIcon className="chevron" icon="chevron-down" />
         </Button>
-          <Popper style={styles.modal} placement="bottom-start" open={open} anchorEl={this.anchorEl} transition disablePortal>
+          <Popper className="modal" placement="bottom-start" open={open} anchorEl={this.anchorEl} transition disablePortal>
             {({ TransitionProps, placement }) => (
               <Grow
                 {...TransitionProps}
@@ -119,7 +71,7 @@ class More extends React.Component {
                       <div className="bottommodal">
                         <Button 
                           disableTouchRipple
-                          style={styles.reset}
+                          className="reset"
                           onClick={this.handleClose}
                         >
                           Reset Filter
@@ -127,15 +79,14 @@ class More extends React.Component {
                         <div className="right">
                         <Button 
                           disableTouchRipple
-                          style={styles.cancel}
+                          className="cancel"
                           onClick={this.handleClose}
                         >
                           Cancel
                         </Button>
                         <Button 
-                          className="applyprice"
                           disableTouchRipple
-                          style={styles.Applybutton}
+                          className="Applybutton"
                           onClick={this.handleClick}
                         >
                           Apply

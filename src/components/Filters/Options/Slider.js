@@ -3,16 +3,6 @@ import { connect } from 'react-redux';
 import Slider from '@material-ui/lab/Slider';
 import { PriceFilter } from '../../../actions';
 
-const styles = {
-  root: {
-    width: 300,
-    marginBottom: '30px'
-  },
-  slider: {
-    padding: '22px 0px',
-  },
-};
-
 class PriceSlider extends React.Component {
   state = {
     value: 100,
@@ -25,9 +15,9 @@ class PriceSlider extends React.Component {
 
   render() {
     return (
-      <div style={styles.root}>
+      <div className="sliderdiv">
         <Slider
-          style={styleMedia.slider}
+          className="slider"
           value={this.props.price}
           aria-labelledby="label"
           onChange={this.handleChange}

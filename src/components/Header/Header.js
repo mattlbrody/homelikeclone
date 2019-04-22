@@ -12,8 +12,6 @@ import { faSearch} from '@fortawesome/free-solid-svg-icons';
 
 library.add(faSearch)
 
-
-
 class Header extends Component {
 
   handleInput = (input) => {

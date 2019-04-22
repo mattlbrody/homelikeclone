@@ -6,8 +6,6 @@ import { faTablet, faMapMarkedAlt } from '@fortawesome/free-solid-svg-icons'
 
 library.add(faTablet, faMapMarkedAlt)
 
-
-
 class ButtonAppBar extends React.Component {
 
 handleButtonClick() {
@@ -19,17 +17,16 @@ onCloseDrawer = () => {
 }
     
 render() {
-    console.log(this.onCloseDrawer)
     return (
         <div className="drawerContainer">
             <div className="drawernav">
                 <div>
                     <Button className="drawerbutton" onClick={this.handleButtonClick}>
-                        <FontAwesomeIcon style={{marginRight: '10px'}} icon="map-marked-alt" />
+                        <FontAwesomeIcon className="fontaicon" icon="map-marked-alt" />
                         Map
                     </Button>
                     <Button className="drawerbutton" onClick={this.handleButtonClick}>
-                        <FontAwesomeIcon style={{marginRight: '10px'}} icon="tablet" />
+                        <FontAwesomeIcon className="fontaicon" icon="tablet" />
                         New Tab
                     </Button>
                 </div>

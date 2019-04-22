@@ -58,6 +58,10 @@
   padding-right: 6px;
 }
 
+.seperatordiv.more {
+  border-right: none;
+}
+
 .mobilefilterwrap {
   margin-top:20px;
   border-top: 1px solid rgb(238, 240, 240);
@@ -65,3 +69,134 @@
   margin-right: 20px;
 }
 
+.mobilefilter {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.mobilefilter .openfilters {
+  border: 1px solid rgb(76, 91, 92);
+  border-radius: 2px;
+  color: rgb(76, 91, 92);
+  font-family: Roboto, sans-serif;
+  font-size: 14px;
+  text-transform: capitalize;
+  font-weight: 100;
+  padding: 5px 10px;
+}
+
+.mobilefilternav {
+  justify-content: flex-end;
+}
+
+.mobilefilternav .handlefilter {
+  background-color: #6699CC;
+  color: white;
+  border-radius: 2px;
+  text-transform: capitalize;
+  font-weight: 400;
+  font-family: Roboto, sans-serif;
+  padding: 5px 10px;
+}
+
+.mobilefilternav .filterback {
+  text-transform: capitalize;
+  color: rgb(102, 153, 204);
+  background-color: transparent;
+  font-family: Roboto, sans-serif;
+  font-weight: 100;
+}
+
+.mobilefilter .filtericonopen {
+  padding-right: 7px;
+  font-size: 10px;
+}
+
+.mobilefilternav .filtericon {
+  padding-right: 7px;
+  font-size: 10px;
+}
+
+.mobilefilterdialog .mobilenavcontent {
+  display: flex;
+  justify-content: center;
+}
+
+.seperatordiv .modal {
+  width: 360px;
+  z-index: 99;
+}
+
+.seperatordiv .Applybutton {
+  background-color: #6699CB;
+  color:white;
+  font-weight: 100;
+  margin-left: 10;
+  text-transform: capitalize;
+}
+
+.seperatordiv .button {
+  background-color: transparent;
+  color: rgb(76, 91, 92);
+  font-weight: 300;
+  font-size: 13px;
+  padding-left: 0;
+  padding-right: 0;
+  text-transform: capitalize;
+  justify-content: space-between;
+  width: 90px;
+}
+.seperatordiv .button:hover, .seperatordiv .minusButton:hover, .seperatordiv .plusButton:hover, .seperatordiv .reset:hover, .seperatordiv .cancel:hover {
+  background-color: transparent;
+}
+
+.seperatordiv .reset {
+  background-color: transparent;
+  font-size: 14px;
+  font-weight: 100;
+  color: tomato;
+  text-transform: capitalize;
+}
+
+.seperatordiv .cancel {
+  background-color: transparent;
+  font-size:14px;
+  font-weight: 100;
+  color: #6699CB;
+  text-transform: capitalize;
+}
+
+.seperatordiv .minus {
+  font-size: 22px;
+  margin-right: 30px;
+  background-color: transparent;
+}
+
+.seperatordiv .plus {
+  font-size: 22px;
+  margin-left: 30px;
+  background-color: transparent;
+}
+
+/************************************** 
+Dates.js 
+**************************************/
+
+.dates .modal {
+  width: 400px;
+  z-index: 99;
+}
+
+/************************************** 
+SizeSlider.js 
+**************************************/
+.sliderdiv {
+  width: 300;
+}
+
+.slider {
+  padding: 22px 0px;
+  margin:0;
+}

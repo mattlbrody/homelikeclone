@@ -1,3 +1,4 @@
+import './Bars.css';
 import React from 'react';
 import Button from '@material-ui/core/Button';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
@@ -11,19 +12,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars} from '@fortawesome/free-solid-svg-icons';
 
 library.add(faBars)
-
-const styles = {
-    modal: {
-      width: '200px',
-      zIndex: '999'
-    },
-    menuItem: {
-      display: 'flex', 
-      justifyContent: 'flex-end',
-      fontSize: '13px',
-      color:' rgb(76, 91, 92)'
-    }
-  }
 
 class Bars extends React.Component {
 
@@ -52,7 +40,7 @@ class Bars extends React.Component {
     const { open } = this.state;
 
     return (
-      <div>
+      <div className="bars">
         <Button
           buttonRef={node => {
             this.anchorEl = node;
@@ -65,18 +53,18 @@ class Bars extends React.Component {
         >
           <FontAwesomeIcon icon="bars" />
         </Button>
-        <Popper style={styles.modal} placement="bottom-end" open={open} anchorEl={this.anchorEl} transition disablePortal>
+        <Popper className="modal" placement="bottom-end" open={open} anchorEl={this.anchorEl} transition disablePortal>
           {({ TransitionProps, placement }) => (
             <Grow
               {...TransitionProps}
               id="menu-list-grow"
               style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
             >
-              <Paper style={{marginTop: '30px'}} square>
+              <Paper className="paper" square>
                 <ClickAwayListener onClickAway={this.handleClose}>
                   <MenuList>
-                    <MenuItem style={styles.menuItem} onClick={this.handleClick}>Login</MenuItem>
-                    <MenuItem style={styles.menuItem} onClick={this.handleClick}>Register</MenuItem>
+                    <MenuItem className="menuItem" onClick={this.handleClick}>Login</MenuItem>
+                    <MenuItem className="menuItem" onClick={this.handleClick}>Register</MenuItem>
                   </MenuList>
                 </ClickAwayListener>
               </Paper>
