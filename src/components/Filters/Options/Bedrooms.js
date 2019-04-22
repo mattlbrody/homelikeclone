@@ -52,7 +52,7 @@ class Bedrooms extends React.Component {
           aria-owns={open ? 'menu-list-grow' : undefined}
           aria-haspopup="true"
           onClick={this.handleToggle}
-          className="button"
+          className="button bedroomnavbutton"
           disableTouchRipple
         >
           Bedrooms

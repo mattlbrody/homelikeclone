@@ -146,8 +146,13 @@
   padding-right: 0;
   text-transform: capitalize;
   justify-content: space-between;
-  width: 90px;
+  max-width:90px;
 }
+
+.seperatordiv .button.bedroomnavbutton {
+  width:150px;
+}
+
 .seperatordiv .button:hover, .seperatordiv .minusButton:hover, .seperatordiv .plusButton:hover, .seperatordiv .reset:hover, .seperatordiv .cancel:hover {
   background-color: transparent;
 }
