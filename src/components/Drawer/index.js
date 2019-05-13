@@ -32,6 +32,14 @@ class TemporaryDrawer extends React.Component {
     this.setState({ mainimage: img })
   }
 
+  formatPricing(price) {
+    if(this.props.aptCurrency === 'EUR') {
+      return `${price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")} €`;
+    } else {
+      return `£${price}`
+    }
+  }
+
   render() {
     return (
       <div className="drawerWidth">
@@ -141,7 +149,7 @@ class TemporaryDrawer extends React.Component {
 
         <div className="aptfootermenu">
           <div className="priceavailability">
-            <div>$2,875 / Month</div>
+            <div>{this.formatPricing(this.props.aptPrice)} / Month</div>
             <div>Available from 04.05.2019</div>
           </div>
           <div className="aptbtnreq">

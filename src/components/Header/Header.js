@@ -15,7 +15,9 @@ library.add(faSearch)
 class Header extends Component {
 
   handleInput = (input) => {
+    // empty the apt list and show loader
     this.props.aptReset({ type: 'APARTMENT_RESET' })
+    // fetch new apt list data and display it
     this.props.fetchData(input);
   }
 
@@ -57,7 +59,7 @@ class Header extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return { apts: state.PostsReducer }
+  return state;
 }
 
 export default connect(mapStateToProps,

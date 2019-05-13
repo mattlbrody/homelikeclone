@@ -21,7 +21,9 @@ class PostList extends Component {
     title: '',
     bedroom: 0,
     size: 0,
-    guests: 0
+    guests: 0,
+    price: 0,
+    currency: 'EUR'
   };
 
   componentDidMount() {
@@ -53,7 +55,9 @@ class PostList extends Component {
         title: apartment.descriptions.en.title,
         bedroom: apartment.bedroomCount,
         size: apartment.details.squareMeters,
-        guests: apartment.details.allowedGuests.persons
+        guests: apartment.details.allowedGuests.persons,
+        price: apartment.pricing.price,
+        currency: apartment.pricing.currency
       })
     } else {
       this.setState({
@@ -68,7 +72,9 @@ class PostList extends Component {
         title: '',
         bedroom: 0,
         size: 0,
-        guests: 0
+        guests: 0,
+        price: 0,
+        currency: ''
       })
     }
   };
@@ -81,6 +87,7 @@ class PostList extends Component {
     alert("I don't have the data for this and the calculations I could do feels like I'm going a bit overboard at this point :)")
   }
 
+  // change the main image in the drawer to the clicked on image in the gallery
   onImageGalleryClick(img) {
     this.setState({ mainimage: img })
   }
@@ -167,6 +174,8 @@ class PostList extends Component {
               aptBedrooms={this.state.bedroom}
               aptSize={this.state.size}
               aptGuests={this.state.guests}
+              aptPrice={this.state.price}
+              aptCurrency={this.state.currency}
             />
             </div>
           </Drawer>

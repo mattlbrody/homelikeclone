@@ -3,37 +3,6 @@
   margin-top:20px;
 }
 
-.pricepaper {
-  padding: 25px;
-}
-
-.modalprice {
-  font-size: 11px;
-  color: rgb(170, 178, 178);
-}
-
-.ameneties {
-  color: rgb(170, 178, 178);
-  font-size:14px;
-}
-
-.services {
-  color: rgb(170, 178, 178);
-  font-size:14px;
-}
-
-.guestprice {
-  font-size: 11px;
-  color:black;
-}
-
-.pricedisplay {
-  font-size:20px;
-  font-weight: 400;
-  color: #6699CB;
-  margin-top:3px;
-}
-
 .slider {
   margin-bottom:50px;
 }
@@ -149,10 +118,6 @@
   max-width:90px;
 }
 
-.seperatordiv .button.bedroomnavbutton {
-  width:150px;
-}
-
 .seperatordiv .button:hover, .seperatordiv .minusButton:hover, .seperatordiv .plusButton:hover, .seperatordiv .reset:hover, .seperatordiv .cancel:hover {
   background-color: transparent;
 }
@@ -185,14 +150,65 @@
   background-color: transparent;
 }
 
+
+/************************************** 
+More.js 
+**************************************/
+.ameneties {
+  color: rgb(170, 178, 178);
+  font-size:14px;
+}
+
+.services {
+  color: rgb(170, 178, 178);
+  font-size:14px;
+}
+
+
+/************************************** 
+Guests.js 
+**************************************/
+.guestprice {
+  font-size: 11px;
+  color:black;
+}
+
+/************************************** 
+Price.js 
+**************************************/
+.pricepaper {
+  padding: 25px;
+}
+
+.modalprice {
+  font-size: 11px;
+  color: rgb(170, 178, 178);
+}
+
+.pricedisplay {
+  font-size:20px;
+  font-weight: 400;
+  color: #6699CB;
+  margin-top:3px;
+}
+
+
+/************************************** 
+Bedrooms.js 
+**************************************/
+.seperatordiv .button.bedroomnavbutton {
+  width:150px;
+}
+
+
 /************************************** 
 Dates.js 
 **************************************/
-
 .dates .modal {
   width: 400px;
   z-index: 99;
 }
+
 
 /************************************** 
 SizeSlider.js 

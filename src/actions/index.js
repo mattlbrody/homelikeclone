@@ -1,8 +1,9 @@
 import jsonPlaceholder from '../apis/jsonPlaceholder';
 
+// returns initial apartment list data on page load
 export const fetchPosts = () => {
   return async dispatch => {
-    const response = await jsonPlaceholder.get('https://api.myjson.com/bins/x2ad4');
+    const response = await jsonPlaceholder.get('x2ad4');
     
     dispatch({ type: 'APARTMENT_LIST', payload: response.data.apartments })
     dispatch({ type: 'APARTMENT_TOTAL', payload: response.data})
@@ -34,84 +35,41 @@ export const aptReset = () => {
   }
 }
 
+// returns the right URL and dispatches the data
+const returnData = (cityURL) => {
+  return async dispatch => {
+    const response = await jsonPlaceholder.get(cityURL);
+    dispatch({ type: 'APARTMENT_LIST', payload: response.data.apartments })
+    dispatch({ type: 'APARTMENT_TOTAL', payload: response.data})
+    dispatch({ type: 'CITY_NAME', payload: response.data.queryParams})
+  }
+}
 
 // search by city name
 export const fetchData = (city) => {
   const cityName = city.toLowerCase()
-  if(cityName === 'berlin') {
-    return async dispatch => {
-      const response = await jsonPlaceholder.get(`https://api.myjson.com/bins/15iffs`);
-      dispatch({ type: 'APARTMENT_LIST', payload: response.data.apartments })
-      dispatch({ type: 'APARTMENT_TOTAL', payload: response.data})
-      dispatch({ type: 'CITY_NAME', payload: response.data.queryParams})
-    }
-  } else if(cityName === 'london') {
-    return async dispatch => {
-      const response = await jsonPlaceholder.get('https://api.myjson.com/bins/nin80');
-  
-      dispatch({ type: 'APARTMENT_LIST', payload: response.data.apartments })
-      dispatch({ type: 'APARTMENT_TOTAL', payload: response.data})
-      dispatch({ type: 'CITY_NAME', payload: response.data.queryParams})
-    }
-  } else if(cityName === 'cologne') {
-    return async dispatch => {
-      const response = await jsonPlaceholder.get('https://api.myjson.com/bins/x2ad4');
-  
-      dispatch({ type: 'APARTMENT_LIST', payload: response.data.apartments })
-      dispatch({ type: 'APARTMENT_TOTAL', payload: response.data})
-      dispatch({ type: 'CITY_NAME', payload: response.data.queryParams})
-    }
-  } else if(cityName === 'vienna') {
-    return async dispatch => {
-      const response = await jsonPlaceholder.get('https://api.myjson.com/bins/ggal4');
-  
-      dispatch({ type: 'APARTMENT_LIST', payload: response.data.apartments })
-      dispatch({ type: 'APARTMENT_TOTAL', payload: response.data})
-      dispatch({ type: 'CITY_NAME', payload: response.data.queryParams})
-    }
-  } else if(cityName === 'frankfurt') {
-    return async dispatch => {
-      const response = await jsonPlaceholder.get('https://api.myjson.com/bins/x8pug');
-  
-      dispatch({ type: 'APARTMENT_LIST', payload: response.data.apartments })
-      dispatch({ type: 'APARTMENT_TOTAL', payload: response.data})
-      dispatch({ type: 'CITY_NAME', payload: response.data.queryParams})
-    }
-  } else if(cityName === 'barcelona') {
-    return async dispatch => {
-      const response = await jsonPlaceholder.get('https://api.myjson.com/bins/11er2w');
-  
-      dispatch({ type: 'APARTMENT_LIST', payload: response.data.apartments })
-      dispatch({ type: 'APARTMENT_TOTAL', payload: response.data})
-      dispatch({ type: 'CITY_NAME', payload: response.data.queryParams})
-    }
-  } else if(cityName === 'hamburg') {
-    return async dispatch => {
-      const response = await jsonPlaceholder.get('https://api.myjson.com/bins/d4hbc');
-  
-      dispatch({ type: 'APARTMENT_LIST', payload: response.data.apartments })
-      dispatch({ type: 'APARTMENT_TOTAL', payload: response.data})
-      dispatch({ type: 'CITY_NAME', payload: response.data.queryParams})
-    }
-  } else if(cityName === 'zurich') {
-    return async dispatch => {
-      const response = await jsonPlaceholder.get('https://api.myjson.com/bins/h60ig');
-  
-      dispatch({ type: 'APARTMENT_LIST', payload: response.data.apartments })
-      dispatch({ type: 'APARTMENT_TOTAL', payload: response.data})
-      dispatch({ type: 'CITY_NAME', payload: response.data.queryParams})
-    }
-  } else if(cityName === 'munich') {
-    return async dispatch => {
-      const response = await jsonPlaceholder.get('https://api.myjson.com/bins/revu0');
-  
-      dispatch({ type: 'APARTMENT_LIST', payload: response.data.apartments })
-      dispatch({ type: 'APARTMENT_TOTAL', payload: response.data})
-      dispatch({ type: 'CITY_NAME', payload: response.data.queryParams})
-    }
-  } else {
-    return dispatch => {
-      dispatch({ type: 'APARTMENT_LIST', payload: 'No data available for that city' })
-    }
+  switch(cityName) {
+    case 'berlin':
+      return returnData(`15iffs`);
+    case 'london':
+      return returnData(`nin80`);
+    case 'cologne':
+      return returnData(`x2ad4`);
+    case 'vienna':
+      return returnData(`ggal4`);
+    case 'frankfurt':
+      return returnData(`x8pug`);
+    case 'barcelona':
+      return returnData(`11er2w`);
+    case 'hamburg':
+      return returnData(`d4hbc`);
+    case 'zurich':
+      return returnData(`h60ig`);
+    case 'munich':
+      return returnData( `revu0`);
+    default:
+      return dispatch => {
+        dispatch({ type: 'APARTMENT_LIST', payload: 'No data available for that city' })
+      }
   }
 }

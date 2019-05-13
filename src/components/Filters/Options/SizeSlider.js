@@ -18,7 +18,7 @@ class SizeSlider extends React.Component {
       <div className="sliderdiv">
         <Slider
           className="slider"
-          value={this.state.value}
+          value={this.props.size}
           aria-labelledby="label"
           onChange={this.handleChange}
         />
