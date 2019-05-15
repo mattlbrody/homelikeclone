@@ -2,8 +2,6 @@
 
 A functional and visual replica of thehomelike.com built using React and Redux with data I was able to get from their API.
 
-Note: I still have a lot of refactoring to do, but the end result looks really good which is what I was initially going for.
-
 This is how I did it.
 
 ### The data
